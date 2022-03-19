@@ -1,58 +1,56 @@
 /**
  *  #####   Delete Operator in JavaScript   ######
  * 
- * Delete operator in JavaScript provide functionality
- * of deleting the object property from the object 
- * It returns true or false, if the object property is 
- * sucessfully deleted it returns true , otherwise false
- * is returned
+ * delete in JavaScript is an operator that can delete a property of an JavaScript object.
+ * 
+ * JavaScript delete operator returns true if it removes an object property and false if it cannot be removed.
+ * However the JavaScript delete operator also return true if the property does not exist on  the object.
+ * Let us quickly demonstrate with an example.
  */
+
 
 /**
- * If you are a JavaScript developer you might have seen delete keyword.
- * Delete operator of JavaScript allows us to delete an object property.
- * Delete operator takes the object property and removes the object property from 
- * the object. 
+ * Syntax
+ * 
+ * delete object.property;
+ * delete object["property"]
+ * 
  */
-var objectLiteral = {
-    
-    param2 : "Param 2",
-    param3 : "Param 3",
-    param4 : "Param 4",
-    
+ 
+ 
+//Object Created With Object Literal Notation
+ let Person = {
+     firstName : "John",
+     lastName : "Doe",
+     city : "New York",
+     address : "USA, New York"
+ } 
+ 
+ console.log(delete Person.city); //true
+ console.log(delete Person.age); //true
+ 
+
+ //Constructor Function
+function Car(brand,color){
+    this.brand = brand;
+    this.color = color;
 }
-console.log(objectLiteral.param1);
 
-objectLiteral.param1 = function() {
-    console.log("Example");
-}
-function Person(firstName , lastName){
-    this.firstName = firstName;
-    this.lastName = lastName;
-}
+var Creta = new Car("Hyundai", "2021");
 
-var barnit = new Person("Barnit", "Basnet");
-console.log(barnit);
-// delete barnit.firstName;
-delete barnit;
-console.log(barnit);
+console.log(delete Creta.color); //true
+console.log(delete Creta.age); //true
 
 
-// console.log(delete Person);
+/**
+ * Delete Keyword can also be used to delete an array element as JavaScript array are after all objects.
+ * But deleting array element using delete keyword is highly discouraged as delete keyword does not update the
+ * array length and it places an special placeholder in the deleted array index as empty.
+ */
+// 
+ 
+var numbers = [1,2,3,4];
+console.log(numbers); //[1,2,3,4]
+console.log(delete numbers[0]); //true
+console.log(numbers); //[empty,2,3,4]
 
-// console.log(objectLiteral);
-// objectLiteral.param1();
-
-// var isDeleted = delete objectLiteral.param1;
-// console.log(isDeleted);
-// console.log(objectLiteral);
-
-
-// var deleteMe = "Delete Me";
-// console.log(delete deleteMe);
-// function DeleteMeFunction(){
-
-// }
-// console.log(delete window.DeleteMeFunction);
-// ddd = "Hey Delete";
-// console.log(delete ddd);
